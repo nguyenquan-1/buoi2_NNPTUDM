@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSON Server CRUD</title>
+  <script defer src="main.js"></script>
+  <style>
+    .deleted {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+    table, td { border: 1px solid #ccc; border-collapse: collapse; padding: 6px; }
+    .box { margin-bottom: 24px; }
+  </style>
+</head>
+
+<body>
+  <!-- POSTS -->
+  <div class="box">
+    <h3>POSTS</h3>
+    <table>
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>Title</td>
+          <td>Views</td>
+          <td>Deleted?</td>
+          <td>Actions</td>
+        </tr>
+      </thead>
+      <tbody id="posts-body-table"></tbody>
+    </table>
+
+    <div style="margin-top:12px;">
+      <!-- Khi tạo mới: để trống ID -->
+      <input type="text" id="post_id_txt" placeholder="ID (để trống khi tạo mới)" />
+      <input type="text" id="post_title_txt" placeholder="Title" />
+      <input type="text" id="post_views_txt" placeholder="Views" />
+      <input type="submit" value="Save Post" onclick="SavePost()" />
+    </div>
+  </div>
+
+  <!-- COMMENTS -->
+  <div class="box">
+    <h3>COMMENTS</h3>
+    <table>
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>Text</td>
+          <td>PostId</td>
+          <td>Actions</td>
+        </tr>
+      </thead>
+      <tbody id="comments-body-table"></tbody>
+    </table>
+
+    <div style="margin-top:12px;">
+      <!-- comment id có thể để trống để auto tăng (mình làm luôn cho tiện) -->
+      <input type="text" id="cmt_id_txt" placeholder="Comment ID (để trống khi tạo mới)" />
+      <input type="text" id="cmt_text_txt" placeholder="Text" />
+      <input type="text" id="cmt_postId_txt" placeholder="PostId" />
+      <input type="submit" value="Save Comment" onclick="SaveComment()" />
+    </div>
+  </div>
+</body>
+</html>
